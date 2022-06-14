@@ -63,30 +63,4 @@ public class MessageSenderImplMock {
 
         Assertions.assertEquals(preferences, expected);
     }
-
-    @Test
-    @DisplayName("Проверка GeoServiceImpl")
-    public void testById() {
-        GeoService geoService = new GeoServiceImpl();
-        String ip = "172.16.16.16";
-
-        Location location = geoService.byIp(ip);
-        Assertions.assertNotNull(location);
-
-        Location actualLocation = new Location("Moscow", Country.RUSSIA, "Ilicha", 0);
-        Assertions.assertNotNull(actualLocation);
-        Assertions.assertEquals(actualLocation.getCountry(), location.getCountry());
-    }
-
-    @Test
-    @DisplayName("Проверка LocalizationServiceImpl")
-    public void testLocale() {
-        LocalizationService localizationService = new LocalizationServiceImpl();
-        String country = localizationService.locale(Country.USA);
-        Assertions.assertNotNull(country);
-
-        String actualText = "Welcome";
-        Assertions.assertEquals(country, actualText);
-
-    }
 }
